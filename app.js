@@ -46,8 +46,7 @@ var SchedulePage = (function () {
     }
     SchedulePage = __decorate([
         angular2_1.Component({
-            selector: 'ons-page',
-            appInjector: [Schedule]
+            selector: 'ons-page'
         }),
         angular2_1.View({
             template: "\n  <ons-page>\n    <ons-toolbar>\n      <div class=\"center\">Schedule</div>\n    </ons-toolbar>\n\n    <ons-list class=\"plan-list\">\n      <ons-list-item (press)=\"schedule.remove(i)\" *ng-for=\"#item of schedule.items; #i = index;\" class=\"plan\">\n        <ons-row>\n          <ons-col width=\"80px\" class=\"plan-left\">\n            <div class=\"plan-date\">{{ item.time }}</div>\n            <div class=\"plan-duration\">{{ item.duration }}</div>\n          </ons-col>\n\n          <ons-col width=\"6px\" class=\"plan-center\">\n          </ons-col>\n\n          <ons-col class=\"plan-right\">\n            <div class=\"plan-name\">{{ item.title }}</div>\n\n            <div *ng-if=\"item.location\" class=\"plan-info\">\n              <div>\n                <ons-icon icon=\"fa-map-marker\"></ons-icon>&nbsp;{{ item.location }}\n              </div>\n            </div>\n          </ons-col>\n        </ons-row>\n      </ons-list-item>\n    </ons-list>\n\n  </ons-page>\n  ",
@@ -62,7 +61,7 @@ var AddItemPage = (function () {
         this.element = self;
         this.schedule = schedule;
         this.times = [];
-        for (i in Array.from(Array(24))) {
+        for (var i in Array.from(Array(24))) {
             var h = i > 9 ? i : '0' + i;
             ;
             this.times.push(h + ':00');

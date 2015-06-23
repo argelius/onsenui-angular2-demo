@@ -43,8 +43,7 @@ class Schedule {
 }
 
 @Component({
-  selector: 'ons-page',
-  appInjector: [Schedule]
+  selector: 'ons-page'
 })
 @View({
   template: `
@@ -122,7 +121,7 @@ class SchedulePage {
   directives: [NgFor]
 })
 class AddItemPage {
-  times: Array;
+  times: Array<string>;
   element: ElementRef;
   schedule: Schedule;
 
@@ -131,7 +130,7 @@ class AddItemPage {
     this.schedule = schedule;
     this.times = [];
 
-    for (i in Array.from(Array(24))) {
+    for (let i in Array.from(Array(24))) {
       let h = i > 9 ? i : '0' + i;;
       this.times.push(h + ':00');
       this.times.push(h + ':30');
@@ -139,7 +138,7 @@ class AddItemPage {
   }
 
   get tabbar() {
-    let node: HTMLElement = this.element.domElement;
+    let node: Node = this.element.domElement;
     while ((node = node.parentNode).nodeName !== 'ONS-TABBAR');
     return node;
   }
